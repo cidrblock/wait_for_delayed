@@ -1,0 +1,3 @@
+- name: Reload vyos now
+  cli_command:
+   command: reboot now

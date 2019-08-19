@@ -1,0 +1,7 @@
+- name: Reload ios now
+  cli_command:
+   command: reload
+   prompt:
+   - 'Proceed with reload?.*'
+   answer:
+   - y

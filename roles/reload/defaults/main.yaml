@@ -1,0 +1,11 @@
+platform_delay:
+  ios: 10
+  eos: 10
+  nxos: 10
+  vyos: 10
+
+platform_uptime_command:
+  ios: show version | i uptime
+  eos: show version | i Uptime
+  nxos: show version | grep uptime
+  vyos: uptime

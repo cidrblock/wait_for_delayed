@@ -1,0 +1,5 @@
+- name: Reload nxos in 5 seconds
+  cli_command:
+   command: reload in 5
+   prompt: "This command will reboot the system. (y/n)?  [n]"
+   answer: y

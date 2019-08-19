@@ -1,0 +1,20 @@
+- include: "{{ item }}"
+  with_first_found:
+  - "includes/{{ ansible_network_os }}/reload.yaml"
+  - "includes/unsupported_platform.yaml"
+
+- name: Wait for the device reload
+  wait_for_connection:
+   connect_timeout: 5
+   sleep: 1
+   delay: "{{ platform_delay[ansible_network_os] }}"
+   timeout: 300
+
+- name: Get the device uptime
+  cli_command:
+    command: "{{ platform_uptime_command[ansible_network_os] }}"
+  register: output
+
+- name: Show the device uptime
+  debug:
+    msg: "{{ output['stdout_lines'][0]}}"

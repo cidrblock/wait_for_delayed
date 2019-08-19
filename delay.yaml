@@ -1,0 +1,12 @@
+- hosts: all
+  gather_facts: False
+  vars:
+    ansible_ssh_pass: "this is not the password"
+    ansible_ssh_user: "thi sis not the username"
+    ansible_become_pass: "this is not the enable password"
+    ansible_host: "this is not the hostname"
+  tasks:
+  - debug:
+      var: hostvars[inventory_hostname]
+  - cli_command:
+      command: show run
